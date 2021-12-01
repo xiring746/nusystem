@@ -17,15 +17,19 @@ public class Student {
 	    private String firstName;
         @Column(name="last_name")
 	    private String LastName;
-        @Column(name="email")
-	    private String email;
-		public Student(String firstName, String lastName, String email) {
+        @Column(name="address")
+	    private String address;
+        @Column(name="postalcode")
+        private Long postalcode;
+		
+	    public Student(String firstName, String lastName, String address, Long postalcode) {
 			super();
 			this.firstName = firstName;
 			LastName = lastName;
-			this.email = email;
+			this.address = address;
+			this.postalcode = postalcode;
 		}
-	    public Student() {
+		public Student() {
 	    	
 	    }
 		public Long getId() {
@@ -46,11 +50,18 @@ public class Student {
 		public void setLastName(String lastName) {
 			LastName = lastName;
 		}
-		public String getEmail() {
-			return email;
+		public String getAddress() {
+			return address;
 		}
-		public void setEmail(String email) {
-			this.email = email;
+		public void setAddress(String address) {
+			this.address = address;
 		}
+		public Long getPostalcode() {
+			return postalcode;
+		}
+		public void setPostalcode(Long postalcode) {
+			this.postalcode = postalcode;
+		}
+		
 	    
 }

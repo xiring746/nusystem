@@ -58,7 +58,8 @@ public class StudentController {
     	            existingStudent.setId(id);
     	            existingStudent.setFirstName(student.getFirstName());
     	            existingStudent.setLastName(student.getLastName());
-    	            existingStudent.setEmail(student.getEmail());
+    	            existingStudent.setAddress(student.getAddress());
+    	            existingStudent.setPostalcode(student.getPostalcode());
     	            // save upload student object
     	            studentService.updateStudent(existingStudent);
     	            return "redirect:/";
