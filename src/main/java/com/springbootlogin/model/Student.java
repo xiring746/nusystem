@@ -23,14 +23,19 @@ public class Student {
         private Long postalcode;
         @Column (name="profession")
         private String profession;
+        @Column (name="department")
+        private String department;
 		
-		public Student(String firstName, String lastName, String address, Long postalcode, String profession) {
+		
+		public Student(String firstName, String lastName, String address, Long postalcode, String profession,
+				String department) {
 			super();
 			this.firstName = firstName;
 			LastName = lastName;
 			this.address = address;
 			this.postalcode = postalcode;
 			this.profession = profession;
+			this.department = department;
 		}
 		public Student() {
 	    	
@@ -71,6 +76,13 @@ public class Student {
 		public void setProfession(String profession) {
 			this.profession = profession;
 		}
+		public String getDepartment() {
+			return department;
+		}
+		public void setDepartment(String department) {
+			this.department = department;
+		}
+	    
 		
 		
 	    

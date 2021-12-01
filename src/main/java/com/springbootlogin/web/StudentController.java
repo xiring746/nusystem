@@ -43,6 +43,13 @@ public class StudentController {
 	    				 "Web Designer",
 	    				 "Graphic Designer");
 	     model.addAttribute("professionList", professionList);
+	     List <String> departmentList = 
+	    		 Arrays.asList("Development",
+	    				 "Sales & Marketing",
+	    				 "Training",
+	    				 "HR",
+	    				 "Finance");
+	     model.addAttribute("departmentList", departmentList);
     	return "create_student";
     	 
     }
@@ -62,6 +69,13 @@ public class StudentController {
     		    				 "Web Designer",
     		    				 "Graphic Designer");
     		     model.addAttribute("professionList", professionList);
+    		     List <String> departmentList = 
+    		    		 Arrays.asList("Dvelopment",
+    		    				 "Sales & Marketing",
+    		    				 "Training",
+    		    				 "HR",
+    		    				 "Finance");
+    		     model.addAttribute("departmentList", departmentList);
     	       return "edit_student";
     }
     @PostMapping("/{id}")
@@ -77,6 +91,7 @@ public class StudentController {
     	            existingStudent.setAddress(student.getAddress());
     	            existingStudent.setPostalcode(student.getPostalcode());
     	            existingStudent.setProfession(student.getProfession());
+    	            existingStudent.setDepartment(student.getDepartment());
     	            // save upload student object
     	            studentService.updateStudent(existingStudent);
     	            return "redirect:/";

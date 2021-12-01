@@ -46,10 +46,17 @@
                            <input type="text" name="lastName" th:field="*{lastName}"
                              class="form-control" placeholder="Enter Last Name" required />
                          </div>
+                           <div class="form-group">
+                             <label>Affiliation Department</label>
+                             <select th:field="*{department}" style="width:100%">
+                                 <option style="width:100%" th:each="p:${departmentList}" th:value="${p}"
+                                       th:text="${p}" />
+                             </select>
+                         </div>
                          <div class="form-group">
-                             <label>Profession</label>
-                             <select th:field="*{profession}">
-                                 <option th:each="p:${professionList}" th:value="${p}"
+                             <label>Job title</label>
+                             <select th:field="*{profession}" style="width:100%">
+                                 <option style="width:100%" th:each="p:${professionList}" th:value="${p}"
                                        th:text="${p}" />
                              </select>
                          </div>
