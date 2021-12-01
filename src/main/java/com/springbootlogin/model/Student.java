@@ -21,13 +21,16 @@ public class Student {
 	    private String address;
         @Column(name="postalcode")
         private Long postalcode;
+        @Column (name="profession")
+        private String profession;
 		
-	    public Student(String firstName, String lastName, String address, Long postalcode) {
+		public Student(String firstName, String lastName, String address, Long postalcode, String profession) {
 			super();
 			this.firstName = firstName;
 			LastName = lastName;
 			this.address = address;
 			this.postalcode = postalcode;
+			this.profession = profession;
 		}
 		public Student() {
 	    	
@@ -62,6 +65,13 @@ public class Student {
 		public void setPostalcode(Long postalcode) {
 			this.postalcode = postalcode;
 		}
+		public String getProfession() {
+			return profession;
+		}
+		public void setProfession(String profession) {
+			this.profession = profession;
+		}
+		
 		
 	    
 }

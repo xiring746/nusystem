@@ -1,5 +1,8 @@
 package com.springbootlogin.web;
 
+import java.util.Arrays;
+import java.util.List;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -26,6 +29,7 @@ public class StudentController {
 	@GetMapping("/")
 	public String listStudents(Model model) {
 		     model.addAttribute("students", studentService.getAllStudents());
+		    
 		     return "students";
 	}
     @GetMapping("/new")
@@ -33,6 +37,12 @@ public class StudentController {
     	// create student object to hold student from data
     	Student student = new Student();
     	model.addAttribute("student", student);
+    	 List <String> professionList = 
+	    		 Arrays.asList("Web Developer",
+	    				 "Mobile Application Developer",
+	    				 "Web Designer",
+	    				 "Graphic Designer");
+	     model.addAttribute("professionList", professionList);
     	return "create_student";
     	 
     }
@@ -46,6 +56,12 @@ public class StudentController {
     @GetMapping("/edit/{id}")
     public String editStudentForm(@PathVariable Long id, Model model) {
     	       model.addAttribute("student", studentService.getStudentById(id));
+    	       List <String> professionList = 
+    		    		 Arrays.asList("Web Developer",
+    		    				 "Mobile Application Developer",
+    		    				 "Web Designer",
+    		    				 "Graphic Designer");
+    		     model.addAttribute("professionList", professionList);
     	       return "edit_student";
     }
     @PostMapping("/{id}")
@@ -60,6 +76,7 @@ public class StudentController {
     	            existingStudent.setLastName(student.getLastName());
     	            existingStudent.setAddress(student.getAddress());
     	            existingStudent.setPostalcode(student.getPostalcode());
+    	            existingStudent.setProfession(student.getProfession());
     	            // save upload student object
     	            studentService.updateStudent(existingStudent);
     	            return "redirect:/";
